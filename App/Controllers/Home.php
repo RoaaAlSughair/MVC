@@ -15,21 +15,11 @@ class Home extends Controllers
         $this->view("Home/index", $this->tasks->GetTasks());
     }
 
-    public function create()
-    {
-        $this->view("Home/create");
-    }
-
     public function add()
     {
         echo $_POST['newTask'];
         if (isset($_POST['newTask']))
             $this->tasks->AddTask($_POST['newTask']);
-    }
-
-    public function edit()
-    {
-        $this->view("Home/edit");
     }
 
     public function update($id)
@@ -44,11 +34,6 @@ class Home extends Controllers
 
         if ($data["Task"])
             $this->tasks->UpdateTask($id, $data['Task']);
-    }
-
-    public function remove()
-    {
-        $this->view("Home/remove");
     }
 
     public function delete($id)
